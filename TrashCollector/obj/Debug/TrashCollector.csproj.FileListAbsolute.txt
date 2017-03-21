@@ -87,3 +87,4 @@ C:\Users\nraug\Desktop\TrashCollector\TrashCollector\obj\Debug\TrashCollector.Mi
 C:\Users\nraug\Desktop\TrashCollector\TrashCollector\obj\Debug\TrashCollector.Migrations.addedstateforeignkeytocitytable.resources
 C:\Users\nraug\Desktop\TrashCollector\TrashCollector\obj\Debug\TrashCollector.Migrations.addedpersontable.resources
 C:\Users\nraug\Desktop\TrashCollector\TrashCollector\obj\Debug\TrashCollector.Migrations.addedaddressestable.resources
+C:\Users\nraug\Desktop\TrashCollector\TrashCollector\obj\Debug\TrashCollector.Migrations.addeduseraccounttable.resources

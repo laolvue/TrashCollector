@@ -35,6 +35,7 @@ namespace TrashCollector.Models
         public DbSet<State> States { get; set; }
         public DbSet<Person> Persons { get; set; }
         public DbSet<Address> Addresses { get; set; }
+        public DbSet<User> UserAccounts { get; set; }
 
 
     }
