@@ -77,7 +77,6 @@ C:\Users\nraug\Desktop\TrashCollector\TrashCollector\bin\Microsoft.Owin.Security
 C:\Users\nraug\Desktop\TrashCollector\TrashCollector\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\nraug\Desktop\TrashCollector\TrashCollector\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\nraug\Desktop\TrashCollector\TrashCollector\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\nraug\Desktop\TrashCollector\TrashCollector\obj\Debug\TrashCollector.csprojResolveAssemblyReference.cache
 C:\Users\nraug\Desktop\TrashCollector\TrashCollector\obj\Debug\TrashCollector.dll
 C:\Users\nraug\Desktop\TrashCollector\TrashCollector\obj\Debug\TrashCollector.pdb
 C:\Users\nraug\Desktop\TrashCollector\TrashCollector\obj\Debug\TrashCollector.Migrations.addedZipCodestable.resources
@@ -88,3 +87,5 @@ C:\Users\nraug\Desktop\TrashCollector\TrashCollector\obj\Debug\TrashCollector.Mi
 C:\Users\nraug\Desktop\TrashCollector\TrashCollector\obj\Debug\TrashCollector.Migrations.addedpersontable.resources
 C:\Users\nraug\Desktop\TrashCollector\TrashCollector\obj\Debug\TrashCollector.Migrations.addedaddressestable.resources
 C:\Users\nraug\Desktop\TrashCollector\TrashCollector\obj\Debug\TrashCollector.Migrations.addeduseraccounttable.resources
+C:\Users\nraug\Desktop\TrashCollector\TrashCollector\obj\Debug\TrashCollector.Migrations.creatednewtable.resources
+C:\Users\nraug\Desktop\TrashCollector\TrashCollector\obj\Debug\TrashCollector.csprojResolveAssemblyReference.cache

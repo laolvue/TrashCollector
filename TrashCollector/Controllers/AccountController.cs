@@ -15,6 +15,7 @@ namespace TrashCollector.Controllers
     [Authorize]
     public class AccountController : Controller
     {
+        //private ApplicationDbContext db = new ApplicationDbContext();
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
@@ -156,8 +157,16 @@ namespace TrashCollector.Controllers
                 
                 if (result.Succeeded)
                 {
+                    /*
+                    User users = new User
+                    {
+                        Email = model.Email.ToString(),
+                        Password = model.Password,
+                        PersonId = 0
+                    };
+                    db.UserAccounts.Add(users);
+                    db.SaveChanges();*/
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
