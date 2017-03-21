@@ -15,7 +15,7 @@ namespace TrashCollector.Controllers
     [Authorize]
     public class AccountController : Controller
     {
-        //private ApplicationDbContext db = new ApplicationDbContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
@@ -155,17 +155,11 @@ namespace TrashCollector.Controllers
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 
+                
+
                 if (result.Succeeded)
                 {
-                    /*
-                    User users = new User
-                    {
-                        Email = model.Email.ToString(),
-                        Password = model.Password,
-                        PersonId = 0
-                    };
-                    db.UserAccounts.Add(users);
-                    db.SaveChanges();*/
+                    db.Persons.FirstOrDefault(a => a.Email == null).Email = model.Email;
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
@@ -373,11 +367,13 @@ namespace TrashCollector.Controllers
             {
                 // Get the information about the user from the external login provider
                 var info = await AuthenticationManager.GetExternalLoginInfoAsync();
+                
                 if (info == null)
                 {
                     return View("ExternalLoginFailure");
                 }
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {

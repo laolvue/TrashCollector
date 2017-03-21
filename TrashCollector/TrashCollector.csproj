@@ -235,6 +235,14 @@
     <Compile Include="Migrations\201703211536160_created new table.Designer.cs">
       <DependentUpon>201703211536160_created new table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703211700556_changed display names of accounts table.cs" />
+    <Compile Include="Migrations\201703211700556_changed display names of accounts table.Designer.cs">
+      <DependentUpon>201703211700556_changed display names of accounts table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703212021543_added email column to Person table.cs" />
+    <Compile Include="Migrations\201703212021543_added email column to Person table.Designer.cs">
+      <DependentUpon>201703212021543_added email column to Person table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -353,6 +361,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703211536160_created new table.resx">
       <DependentUpon>201703211536160_created new table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703211700556_changed display names of accounts table.resx">
+      <DependentUpon>201703211700556_changed display names of accounts table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703212021543_added email column to Person table.resx">
+      <DependentUpon>201703212021543_added email column to Person table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

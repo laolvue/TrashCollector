@@ -88,4 +88,6 @@ C:\Users\nraug\Desktop\TrashCollector\TrashCollector\obj\Debug\TrashCollector.Mi
 C:\Users\nraug\Desktop\TrashCollector\TrashCollector\obj\Debug\TrashCollector.Migrations.addedaddressestable.resources
 C:\Users\nraug\Desktop\TrashCollector\TrashCollector\obj\Debug\TrashCollector.Migrations.addeduseraccounttable.resources
 C:\Users\nraug\Desktop\TrashCollector\TrashCollector\obj\Debug\TrashCollector.Migrations.creatednewtable.resources
+C:\Users\nraug\Desktop\TrashCollector\TrashCollector\obj\Debug\TrashCollector.Migrations.changeddisplaynamesofaccountstable.resources
 C:\Users\nraug\Desktop\TrashCollector\TrashCollector\obj\Debug\TrashCollector.csprojResolveAssemblyReference.cache
+C:\Users\nraug\Desktop\TrashCollector\TrashCollector\obj\Debug\TrashCollector.Migrations.addedemailcolumntoPersontable.resources

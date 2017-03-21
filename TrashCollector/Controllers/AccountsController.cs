@@ -62,10 +62,6 @@ namespace TrashCollector.Controllers
                 };
                 db.States.Add(state);
                 db.SaveChanges();
-                //var device = new Zip();
-                //device.ZipId = (from a in db.ZipCodes where a.ZipCode == account.ZipCode select a.ZipId).Single();
-                //var deviceb = new State();
-                //deviceb.StateId = (from a in db.ZipCodes where a.ZipCode == account.ZipCode select a.ZipId).Single();
 
                 City city = new City
                 {
@@ -91,12 +87,9 @@ namespace TrashCollector.Controllers
                     AddressId = (from a in db.Addresses where a.AddressName == account.StreetAddress select a.AddressId).First()
                 };
                 db.Persons.Add(person);
-
                 db.SaveChanges();
-                /*
-                db.Accounts.Add(account);
-                db.SaveChanges();*/
-                return RedirectToAction("Index");
+
+                return RedirectToAction("Register","Account");
             }
 
             return View(account);
