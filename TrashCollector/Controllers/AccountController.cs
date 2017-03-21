@@ -154,12 +154,11 @@ namespace TrashCollector.Controllers
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
-                
-                
 
                 if (result.Succeeded)
                 {
                     db.Persons.FirstOrDefault(a => a.Email == null).Email = model.Email;
+                    db.SaveChanges();
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link

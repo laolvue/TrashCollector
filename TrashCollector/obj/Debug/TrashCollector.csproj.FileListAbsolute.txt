@@ -91,3 +91,4 @@ C:\Users\nraug\Desktop\TrashCollector\TrashCollector\obj\Debug\TrashCollector.Mi
 C:\Users\nraug\Desktop\TrashCollector\TrashCollector\obj\Debug\TrashCollector.Migrations.changeddisplaynamesofaccountstable.resources
 C:\Users\nraug\Desktop\TrashCollector\TrashCollector\obj\Debug\TrashCollector.csprojResolveAssemblyReference.cache
 C:\Users\nraug\Desktop\TrashCollector\TrashCollector\obj\Debug\TrashCollector.Migrations.addedemailcolumntoPersontable.resources
+C:\Users\nraug\Desktop\TrashCollector\TrashCollector\obj\Debug\TrashCollector.Migrations.deletedusertable.resources
