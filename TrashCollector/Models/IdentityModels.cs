@@ -29,5 +29,13 @@ namespace TrashCollector.Models
         {
             return new ApplicationDbContext();
         }
+
+        public DbSet<Zip> ZipCodes { get; set; }
+        public DbSet<City> Cities { get; set; }
+        public DbSet<State> States { get; set; }
+        public DbSet<Person> Persons { get; set; }
+        public DbSet<Address> Addresses { get; set; }
+
+
     }
 }
