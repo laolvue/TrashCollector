@@ -14,6 +14,7 @@ namespace TrashCollector.Models
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
             // Add custom user claims here
+
             return userIdentity;
         }
     }
@@ -40,6 +41,7 @@ namespace TrashCollector.Models
         public DbSet<Time> Times { get; set; }
         public DbSet<Day> Days { get; set; }
         public DbSet<SetSchedule> SetSchedules { get; set; }
+        public DbSet<Schedule> Schedules { get; set; }
         public System.Data.Entity.DbSet<TrashCollector.Models.Account> Accounts { get; set; }
     }
 }

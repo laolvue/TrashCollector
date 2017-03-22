@@ -10,6 +10,7 @@ namespace TrashCollector.Models
     {
         [Key]
         public int TimeId { get; set; }
+        [Display(Name = "Time")]
         public string TimeName { get; set; }
     }
 }

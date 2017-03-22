@@ -11,9 +11,15 @@ namespace TrashCollector.Models
     {
         [Key]
         public int Id { get; set; }
+
+        [Required]
+        [Display(Name = "Preferred Pick up times:")]
         [ForeignKey("Time")]
-        public int PersonId { get; set; }
+        public int TimeId { get; set; }
         public Time Time { get; set; }
+
+        [Required]
+        [Display(Name = "Pick up days:")]
         [ForeignKey("Day")]
         public int DayId { get; set; }
         public Day Day { get; set; }

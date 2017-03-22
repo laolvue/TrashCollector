@@ -211,6 +211,18 @@
     <Compile Include="Migrations\201703220431196_added setschedules table.Designer.cs">
       <DependentUpon>201703220431196_added setschedules table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703221244133_changed names for setschedule table.cs" />
+    <Compile Include="Migrations\201703221244133_changed names for setschedule table.Designer.cs">
+      <DependentUpon>201703221244133_changed names for setschedule table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703221327473_added schedules table.cs" />
+    <Compile Include="Migrations\201703221327473_added schedules table.Designer.cs">
+      <DependentUpon>201703221327473_added schedules table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703221603231_changed names of table.cs" />
+    <Compile Include="Migrations\201703221603231_changed names of table.Designer.cs">
+      <DependentUpon>201703221603231_changed names of table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -221,6 +233,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Month.cs" />
     <Compile Include="Models\Person.cs" />
+    <Compile Include="Models\Schedule.cs" />
     <Compile Include="Models\SetSchedule.cs" />
     <Compile Include="Models\State.cs" />
     <Compile Include="Models\Time.cs" />
@@ -326,6 +339,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703220431196_added setschedules table.resx">
       <DependentUpon>201703220431196_added setschedules table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703221244133_changed names for setschedule table.resx">
+      <DependentUpon>201703221244133_changed names for setschedule table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703221327473_added schedules table.resx">
+      <DependentUpon>201703221327473_added schedules table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703221603231_changed names of table.resx">
+      <DependentUpon>201703221603231_changed names of table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

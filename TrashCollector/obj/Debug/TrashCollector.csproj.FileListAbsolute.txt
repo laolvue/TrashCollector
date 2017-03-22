@@ -79,7 +79,10 @@ C:\Users\nraug\Desktop\TrashCollector\TrashCollector\bin\Microsoft.Owin.Security
 C:\Users\nraug\Desktop\TrashCollector\TrashCollector\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\nraug\Desktop\TrashCollector\TrashCollector\obj\Debug\TrashCollector.dll
 C:\Users\nraug\Desktop\TrashCollector\TrashCollector\obj\Debug\TrashCollector.pdb
-C:\Users\nraug\Desktop\TrashCollector\TrashCollector\obj\Debug\TrashCollector.csprojResolveAssemblyReference.cache
 C:\Users\nraug\Desktop\TrashCollector\TrashCollector\obj\Debug\TrashCollector.Migrations.test.resources
 C:\Users\nraug\Desktop\TrashCollector\TrashCollector\obj\Debug\TrashCollector.csproj.GenerateResource.Cache
 C:\Users\nraug\Desktop\TrashCollector\TrashCollector\obj\Debug\TrashCollector.Migrations.addedsetschedulestable.resources
+C:\Users\nraug\Desktop\TrashCollector\TrashCollector\obj\Debug\TrashCollector.Migrations.changednamesforsetscheduletable.resources
+C:\Users\nraug\Desktop\TrashCollector\TrashCollector\obj\Debug\TrashCollector.Migrations.addedschedulestable.resources
+C:\Users\nraug\Desktop\TrashCollector\TrashCollector\obj\Debug\TrashCollector.csprojResolveAssemblyReference.cache
+C:\Users\nraug\Desktop\TrashCollector\TrashCollector\obj\Debug\TrashCollector.Migrations.changednamesoftable.resources
