@@ -246,15 +246,40 @@
     <Compile Include="Migrations\201703212038460_deleted user table.Designer.cs">
       <DependentUpon>201703212038460_deleted user table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703220216339_added month table.cs" />
+    <Compile Include="Migrations\201703220216339_added month table.Designer.cs">
+      <DependentUpon>201703220216339_added month table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703220308392_added week table.cs" />
+    <Compile Include="Migrations\201703220308392_added week table.Designer.cs">
+      <DependentUpon>201703220308392_added week table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703220332502_added day and time tables.cs" />
+    <Compile Include="Migrations\201703220332502_added day and time tables.Designer.cs">
+      <DependentUpon>201703220332502_added day and time tables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703220336240_changed properties of time and day table.cs" />
+    <Compile Include="Migrations\201703220336240_changed properties of time and day table.Designer.cs">
+      <DependentUpon>201703220336240_changed properties of time and day table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703220345536_added model to set pick up times.cs" />
+    <Compile Include="Migrations\201703220345536_added model to set pick up times.Designer.cs">
+      <DependentUpon>201703220345536_added model to set pick up times.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\City.cs" />
+    <Compile Include="Models\Day.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Month.cs" />
     <Compile Include="Models\Person.cs" />
+    <Compile Include="Models\SetPickUp.cs" />
     <Compile Include="Models\State.cs" />
+    <Compile Include="Models\Time.cs" />
+    <Compile Include="Models\Week.cs" />
     <Compile Include="Models\Zip.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -327,6 +352,7 @@
     <Content Include="Views\Accounts\Details.cshtml" />
     <Content Include="Views\Accounts\Edit.cshtml" />
     <Content Include="Views\Accounts\Index.cshtml" />
+    <Content Include="Views\Home\Schedule.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -372,6 +398,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703212038460_deleted user table.resx">
       <DependentUpon>201703212038460_deleted user table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703220216339_added month table.resx">
+      <DependentUpon>201703220216339_added month table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703220308392_added week table.resx">
+      <DependentUpon>201703220308392_added week table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703220332502_added day and time tables.resx">
+      <DependentUpon>201703220332502_added day and time tables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703220336240_changed properties of time and day table.resx">
+      <DependentUpon>201703220336240_changed properties of time and day table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703220345536_added model to set pick up times.resx">
+      <DependentUpon>201703220345536_added model to set pick up times.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

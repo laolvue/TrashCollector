@@ -35,7 +35,11 @@ namespace TrashCollector.Models
         public DbSet<State> States { get; set; }
         public DbSet<Person> Persons { get; set; }
         public DbSet<Address> Addresses { get; set; }
-
+        public DbSet<Month> Months { get; set; }
+        public DbSet<Week> Weeks { get; set; }
+        public DbSet<Time> Times { get; set; }
+        public DbSet<Day> Days { get; set; }
+        public DbSet<SetPickUp> SetPickUps { get; set; }
         public System.Data.Entity.DbSet<TrashCollector.Models.Account> Accounts { get; set; }
     }
 }

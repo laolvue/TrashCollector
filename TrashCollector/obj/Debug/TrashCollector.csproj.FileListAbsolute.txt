@@ -92,3 +92,8 @@ C:\Users\nraug\Desktop\TrashCollector\TrashCollector\obj\Debug\TrashCollector.Mi
 C:\Users\nraug\Desktop\TrashCollector\TrashCollector\obj\Debug\TrashCollector.csprojResolveAssemblyReference.cache
 C:\Users\nraug\Desktop\TrashCollector\TrashCollector\obj\Debug\TrashCollector.Migrations.addedemailcolumntoPersontable.resources
 C:\Users\nraug\Desktop\TrashCollector\TrashCollector\obj\Debug\TrashCollector.Migrations.deletedusertable.resources
+C:\Users\nraug\Desktop\TrashCollector\TrashCollector\obj\Debug\TrashCollector.Migrations.addedmonthtable.resources
+C:\Users\nraug\Desktop\TrashCollector\TrashCollector\obj\Debug\TrashCollector.Migrations.addedweektable.resources
+C:\Users\nraug\Desktop\TrashCollector\TrashCollector\obj\Debug\TrashCollector.Migrations.addeddayandtimetables.resources
+C:\Users\nraug\Desktop\TrashCollector\TrashCollector\obj\Debug\TrashCollector.Migrations.changedpropertiesoftimeanddaytable.resources
+C:\Users\nraug\Desktop\TrashCollector\TrashCollector\obj\Debug\TrashCollector.Migrations.addedmodeltosetpickuptimes.resources
