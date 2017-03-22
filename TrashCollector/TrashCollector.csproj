@@ -199,72 +199,17 @@
     <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\SetSchedulesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201703211341189_added ZipCodes table.cs" />
-    <Compile Include="Migrations\201703211341189_added ZipCodes table.Designer.cs">
-      <DependentUpon>201703211341189_added ZipCodes table.cs</DependentUpon>
+    <Compile Include="Migrations\201703220422576_test.cs" />
+    <Compile Include="Migrations\201703220422576_test.Designer.cs">
+      <DependentUpon>201703220422576_test.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201703211346595_added cities table.cs" />
-    <Compile Include="Migrations\201703211346595_added cities table.Designer.cs">
-      <DependentUpon>201703211346595_added cities table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703211349474_added States table.cs" />
-    <Compile Include="Migrations\201703211349474_added States table.Designer.cs">
-      <DependentUpon>201703211349474_added States table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703211350573_added state foreign key to city table.cs" />
-    <Compile Include="Migrations\201703211350573_added state foreign key to city table.Designer.cs">
-      <DependentUpon>201703211350573_added state foreign key to city table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703211357016_added person table.cs" />
-    <Compile Include="Migrations\201703211357016_added person table.Designer.cs">
-      <DependentUpon>201703211357016_added person table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703211403154_added addresses table.cs" />
-    <Compile Include="Migrations\201703211403154_added addresses table.Designer.cs">
-      <DependentUpon>201703211403154_added addresses table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703211414343_added user account table.cs" />
-    <Compile Include="Migrations\201703211414343_added user account table.Designer.cs">
-      <DependentUpon>201703211414343_added user account table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703211536160_created new table.cs" />
-    <Compile Include="Migrations\201703211536160_created new table.Designer.cs">
-      <DependentUpon>201703211536160_created new table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703211700556_changed display names of accounts table.cs" />
-    <Compile Include="Migrations\201703211700556_changed display names of accounts table.Designer.cs">
-      <DependentUpon>201703211700556_changed display names of accounts table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703212021543_added email column to Person table.cs" />
-    <Compile Include="Migrations\201703212021543_added email column to Person table.Designer.cs">
-      <DependentUpon>201703212021543_added email column to Person table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703212038460_deleted user table.cs" />
-    <Compile Include="Migrations\201703212038460_deleted user table.Designer.cs">
-      <DependentUpon>201703212038460_deleted user table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703220216339_added month table.cs" />
-    <Compile Include="Migrations\201703220216339_added month table.Designer.cs">
-      <DependentUpon>201703220216339_added month table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703220308392_added week table.cs" />
-    <Compile Include="Migrations\201703220308392_added week table.Designer.cs">
-      <DependentUpon>201703220308392_added week table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703220332502_added day and time tables.cs" />
-    <Compile Include="Migrations\201703220332502_added day and time tables.Designer.cs">
-      <DependentUpon>201703220332502_added day and time tables.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703220336240_changed properties of time and day table.cs" />
-    <Compile Include="Migrations\201703220336240_changed properties of time and day table.Designer.cs">
-      <DependentUpon>201703220336240_changed properties of time and day table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703220345536_added model to set pick up times.cs" />
-    <Compile Include="Migrations\201703220345536_added model to set pick up times.Designer.cs">
-      <DependentUpon>201703220345536_added model to set pick up times.cs</DependentUpon>
+    <Compile Include="Migrations\201703220431196_added setschedules table.cs" />
+    <Compile Include="Migrations\201703220431196_added setschedules table.Designer.cs">
+      <DependentUpon>201703220431196_added setschedules table.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
@@ -276,7 +221,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Month.cs" />
     <Compile Include="Models\Person.cs" />
-    <Compile Include="Models\SetPickUp.cs" />
+    <Compile Include="Models\SetSchedule.cs" />
     <Compile Include="Models\State.cs" />
     <Compile Include="Models\Time.cs" />
     <Compile Include="Models\Week.cs" />
@@ -353,6 +298,16 @@
     <Content Include="Views\Accounts\Edit.cshtml" />
     <Content Include="Views\Accounts\Index.cshtml" />
     <Content Include="Views\Home\Schedule.cshtml" />
+    <Content Include="Views\SetPickUps\Create.cshtml" />
+    <Content Include="Views\SetPickUps\Delete.cshtml" />
+    <Content Include="Views\SetPickUps\Details.cshtml" />
+    <Content Include="Views\SetPickUps\Edit.cshtml" />
+    <Content Include="Views\SetPickUps\Index.cshtml" />
+    <Content Include="Views\SetSchedules\Create.cshtml" />
+    <Content Include="Views\SetSchedules\Delete.cshtml" />
+    <Content Include="Views\SetSchedules\Details.cshtml" />
+    <Content Include="Views\SetSchedules\Edit.cshtml" />
+    <Content Include="Views\SetSchedules\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -366,53 +321,11 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201703211341189_added ZipCodes table.resx">
-      <DependentUpon>201703211341189_added ZipCodes table.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201703220422576_test.resx">
+      <DependentUpon>201703220422576_test.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703211346595_added cities table.resx">
-      <DependentUpon>201703211346595_added cities table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703211349474_added States table.resx">
-      <DependentUpon>201703211349474_added States table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703211350573_added state foreign key to city table.resx">
-      <DependentUpon>201703211350573_added state foreign key to city table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703211357016_added person table.resx">
-      <DependentUpon>201703211357016_added person table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703211403154_added addresses table.resx">
-      <DependentUpon>201703211403154_added addresses table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703211414343_added user account table.resx">
-      <DependentUpon>201703211414343_added user account table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703211536160_created new table.resx">
-      <DependentUpon>201703211536160_created new table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703211700556_changed display names of accounts table.resx">
-      <DependentUpon>201703211700556_changed display names of accounts table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703212021543_added email column to Person table.resx">
-      <DependentUpon>201703212021543_added email column to Person table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703212038460_deleted user table.resx">
-      <DependentUpon>201703212038460_deleted user table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703220216339_added month table.resx">
-      <DependentUpon>201703220216339_added month table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703220308392_added week table.resx">
-      <DependentUpon>201703220308392_added week table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703220332502_added day and time tables.resx">
-      <DependentUpon>201703220332502_added day and time tables.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703220336240_changed properties of time and day table.resx">
-      <DependentUpon>201703220336240_changed properties of time and day table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703220345536_added model to set pick up times.resx">
-      <DependentUpon>201703220345536_added model to set pick up times.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201703220431196_added setschedules table.resx">
+      <DependentUpon>201703220431196_added setschedules table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

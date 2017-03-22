@@ -39,7 +39,7 @@ namespace TrashCollector.Models
         public DbSet<Week> Weeks { get; set; }
         public DbSet<Time> Times { get; set; }
         public DbSet<Day> Days { get; set; }
-        public DbSet<SetPickUp> SetPickUps { get; set; }
+        public DbSet<SetSchedule> SetSchedules { get; set; }
         public System.Data.Entity.DbSet<TrashCollector.Models.Account> Accounts { get; set; }
     }
 }
