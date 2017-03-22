@@ -20,8 +20,6 @@ namespace TrashCollector.Controllers
         public ActionResult Index()
         {
             var userEmail = User.Identity.Name;
-
-            var setSchedules = db.SetSchedules.Include(s => s.Day).Include(s => s.Time);
             
             List<List<string>> gea = new List<List<string>>();
             var scheduleOfUser = db.Schedules.Where(a => a.PersonId == (from b in db.Persons where b.Email == userEmail select b.PersonId).FirstOrDefault()).ToList();
@@ -69,8 +67,8 @@ namespace TrashCollector.Controllers
             ViewData["MyProduct"] = weekzz;
             ViewData["MyProduct2"] = timezz;
             ViewData["MyProduct3"] = dayzz;
-            return View(setSchedules.ToList());
-            //return View(gea);
+
+            return View();
         }
 
         // GET: SetSchedules/Details/5

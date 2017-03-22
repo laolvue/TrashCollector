@@ -13,11 +13,20 @@
     var prod3 = (List<string>)ViewData["MyProduct3"];
 }
 
-<h2>Index</h2>
+<h2>Your Schedule for 2017</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<table class="table">
+    <tr>
+        <th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+        <th>
+            @Html.ActionLink("Change All", "Create")
+        </th>
+        <th>
+            @Html.ActionLink("Change Specific Date", "Create","SetWeekSchedules")
+        </th>
+    </tr>
+</table>
+    
 <table class="table">
     <tr>
         <th>
@@ -32,18 +41,19 @@
         <th></th>
     </tr>
 
-@for(int i=0; i<prod.Count;i++){
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => prod[i])
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => prod3[i])
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => prod2[1])
-        </td>
-    </tr>
-}
+    @for (int i = 0; i < prod.Count; i++)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => prod[i])
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => prod3[i])
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => prod2[i])
+            </td>
+        </tr>
+    }
 
 </table>

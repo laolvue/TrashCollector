@@ -42,6 +42,7 @@ namespace TrashCollector.Models
         public DbSet<Day> Days { get; set; }
         public DbSet<SetSchedule> SetSchedules { get; set; }
         public DbSet<Schedule> Schedules { get; set; }
+        public DbSet<SetWeekSchedule> SetWeekSchedules { get; set; }
         public System.Data.Entity.DbSet<TrashCollector.Models.Account> Accounts { get; set; }
     }
 }
