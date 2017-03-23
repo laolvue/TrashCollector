@@ -327,6 +327,7 @@
     <Content Include="Views\SetWeekSchedules\Details.cshtml" />
     <Content Include="Views\SetWeekSchedules\Edit.cshtml" />
     <Content Include="Views\SetWeekSchedules\Index.cshtml" />
+    <Content Include="Views\Accounts\RegisterEmployee.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
