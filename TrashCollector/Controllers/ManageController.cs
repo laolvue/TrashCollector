@@ -15,6 +15,7 @@ namespace TrashCollector.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        public HomeController identifier = new HomeController();
 
         public ManageController()
         {
@@ -54,6 +55,10 @@ namespace TrashCollector.Controllers
         // GET: /Manage/Index
         public async Task<ActionResult> Index(ManageMessageId? message)
         {
+            if (UserManager.IsInRole(User.Identity.GetUserId(),"Employee"))
+            {
+                ViewData["MyProduct"] = "1";
+            }
             ViewBag.StatusMessage =
                 message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
                 : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."

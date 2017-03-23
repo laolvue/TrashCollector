@@ -20,6 +20,7 @@ namespace TrashCollector.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        public HomeController identifier = new HomeController();
 
         public AccountController()
         {
@@ -69,6 +70,7 @@ namespace TrashCollector.Controllers
                 if (isEmployeeUser())
                 {
                     ViewBag.displayMenu = "Yes";
+                    ViewData["MyProduct"] = "1";
                 }
                 return View();
             }
@@ -85,7 +87,6 @@ namespace TrashCollector.Controllers
         // GET: /Account/Login
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
-
         {
             ViewBag.ReturnUrl = returnUrl;
             return View();
@@ -98,6 +99,8 @@ namespace TrashCollector.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
+            
+
             if (!ModelState.IsValid)
             {
                 return View(model);
@@ -125,6 +128,7 @@ namespace TrashCollector.Controllers
 
         public Boolean isEmployeeUser()
         {
+
             if (User.Identity.IsAuthenticated)
             {
                 var user = User.Identity;
@@ -161,6 +165,8 @@ namespace TrashCollector.Controllers
         [AllowAnonymous]
         public async Task<ActionResult> VerifyCode(string provider, string returnUrl, bool rememberMe)
         {
+            ViewData["MyProduct"] = identifier.DetermineEmployee();
+
             // Require that the user has already logged in via username/password or external login
             if (!await SignInManager.HasBeenVerifiedAsync())
             {
@@ -176,6 +182,8 @@ namespace TrashCollector.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> VerifyCode(VerifyCodeViewModel model)
         {
+            ViewData["MyProduct"] = identifier.DetermineEmployee();
+
             if (!ModelState.IsValid)
             {
                 return View(model);
@@ -204,6 +212,7 @@ namespace TrashCollector.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+
             return View();
         }
 
@@ -244,6 +253,8 @@ namespace TrashCollector.Controllers
         [AllowAnonymous]
         public async Task<ActionResult> ConfirmEmail(string userId, string code)
         {
+            ViewData["MyProduct"] = identifier.DetermineEmployee();
+
             if (userId == null || code == null)
             {
                 return View("Error");
@@ -257,6 +268,8 @@ namespace TrashCollector.Controllers
         [AllowAnonymous]
         public ActionResult ForgotPassword()
         {
+            ViewData["MyProduct"] = identifier.DetermineEmployee();
+
             return View();
         }
 
@@ -267,6 +280,8 @@ namespace TrashCollector.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ForgotPassword(ForgotPasswordViewModel model)
         {
+            ViewData["MyProduct"] = identifier.DetermineEmployee();
+
             if (ModelState.IsValid)
             {
                 var user = await UserManager.FindByNameAsync(model.Email);
@@ -293,6 +308,8 @@ namespace TrashCollector.Controllers
         [AllowAnonymous]
         public ActionResult ForgotPasswordConfirmation()
         {
+            ViewData["MyProduct"] = identifier.DetermineEmployee();
+
             return View();
         }
 
@@ -301,6 +318,8 @@ namespace TrashCollector.Controllers
         [AllowAnonymous]
         public ActionResult ResetPassword(string code)
         {
+            ViewData["MyProduct"] = identifier.DetermineEmployee();
+
             return code == null ? View("Error") : View();
         }
 
@@ -311,6 +330,8 @@ namespace TrashCollector.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ResetPassword(ResetPasswordViewModel model)
         {
+            ViewData["MyProduct"] = identifier.DetermineEmployee();
+
             if (!ModelState.IsValid)
             {
                 return View(model);
@@ -335,7 +356,10 @@ namespace TrashCollector.Controllers
         [AllowAnonymous]
         public ActionResult ResetPasswordConfirmation()
         {
+            ViewData["MyProduct"] = identifier.DetermineEmployee();
+
             return View();
+
         }
 
         //
@@ -345,6 +369,8 @@ namespace TrashCollector.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult ExternalLogin(string provider, string returnUrl)
         {
+            ViewData["MyProduct"] = identifier.DetermineEmployee();
+
             // Request a redirect to the external login provider
             return new ChallengeResult(provider, Url.Action("ExternalLoginCallback", "Account", new { ReturnUrl = returnUrl }));
         }
@@ -354,6 +380,8 @@ namespace TrashCollector.Controllers
         [AllowAnonymous]
         public async Task<ActionResult> SendCode(string returnUrl, bool rememberMe)
         {
+            ViewData["MyProduct"] = identifier.DetermineEmployee();
+
             var userId = await SignInManager.GetVerifiedUserIdAsync();
             if (userId == null)
             {
@@ -371,6 +399,8 @@ namespace TrashCollector.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> SendCode(SendCodeViewModel model)
         {
+            ViewData["MyProduct"] = identifier.DetermineEmployee();
+
             if (!ModelState.IsValid)
             {
                 return View();
@@ -389,6 +419,8 @@ namespace TrashCollector.Controllers
         [AllowAnonymous]
         public async Task<ActionResult> ExternalLoginCallback(string returnUrl)
         {
+            ViewData["MyProduct"] = identifier.DetermineEmployee();
+
             var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync();
             if (loginInfo == null)
             {
@@ -421,6 +453,8 @@ namespace TrashCollector.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl)
         {
+            ViewData["MyProduct"] = identifier.DetermineEmployee();
+
             if (User.Identity.IsAuthenticated)
             {
                 return RedirectToAction("Index", "Manage");
@@ -460,6 +494,7 @@ namespace TrashCollector.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
+
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
             return RedirectToAction("Index", "Home");
         }
@@ -469,11 +504,14 @@ namespace TrashCollector.Controllers
         [AllowAnonymous]
         public ActionResult ExternalLoginFailure()
         {
+            ViewData["MyProduct"] = identifier.DetermineEmployee();
+
             return View();
         }
 
         protected override void Dispose(bool disposing)
         {
+
             if (disposing)
             {
                 if (_userManager != null)

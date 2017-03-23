@@ -12,6 +12,7 @@ using System.Web.Mvc;
 using TrashCollector.Models;
 using static TrashCollector.Models.Account;
 
+
 namespace TrashCollector.Controllers
 {
     public class AccountsController : Controller
@@ -19,6 +20,7 @@ namespace TrashCollector.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        public HomeController identifier = new HomeController();
 
         public void AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
@@ -51,12 +53,15 @@ namespace TrashCollector.Controllers
         // GET: Accounts
         public ActionResult Index()
         {
+            ViewData["MyProduct"] = identifier.DetermineEmployee();
             return View(db.Accounts.ToList());
         }
 
         // GET: Accounts/Details/5
         public ActionResult Details(string id)
         {
+            ViewData["MyProduct"] = identifier.DetermineEmployee();
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -72,6 +77,7 @@ namespace TrashCollector.Controllers
         // GET: Accounts/Create
         public ActionResult CreateAccount()
         {
+
             return View();
         }
 
@@ -132,6 +138,8 @@ namespace TrashCollector.Controllers
         // GET: Accounts/Edit/5
         public ActionResult Edit(string id)
         {
+            ViewData["MyProduct"] = identifier.DetermineEmployee();
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -151,6 +159,8 @@ namespace TrashCollector.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "FirstName,LastName,StreetAddress,City,State,ZipCode")] Account account)
         {
+            ViewData["MyProduct"] = identifier.DetermineEmployee();
+
             if (ModelState.IsValid)
             {
                 db.Entry(account).State = EntityState.Modified;
@@ -163,6 +173,8 @@ namespace TrashCollector.Controllers
         // GET: Accounts/Delete/5
         public ActionResult Delete(string id)
         {
+            ViewData["MyProduct"] = identifier.DetermineEmployee();
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -180,6 +192,8 @@ namespace TrashCollector.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
+            ViewData["MyProduct"] = identifier.DetermineEmployee();
+
             Account account = db.Accounts.Find(id);
             db.Accounts.Remove(account);
             db.SaveChanges();
@@ -199,6 +213,8 @@ namespace TrashCollector.Controllers
         [AllowAnonymous]
         public ActionResult RegisterEmployee()
         {
+            ViewData["MyProduct"] = identifier.DetermineEmployee();
+
             ViewBag.Name = new SelectList(db.Roles.Where(u => !u.Name.Contains("Admin"))
                                             .ToList(), "Name", "Name");
             return View();
@@ -211,6 +227,8 @@ namespace TrashCollector.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> RegisterEmployee(RegisterEmployee model)
         {
+            ViewData["MyProduct"] = identifier.DetermineEmployee();
+
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
@@ -240,6 +258,7 @@ namespace TrashCollector.Controllers
 
         private void AddErrors(IdentityResult result)
         {
+
             foreach (var error in result.Errors)
             {
                 ModelState.AddModelError("", error);
