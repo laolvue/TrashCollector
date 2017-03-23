@@ -14,7 +14,6 @@ using static TrashCollector.Models.Account;
 
 namespace TrashCollector.Controllers
 {
-    [Authorize]
     public class AccountsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -71,7 +70,7 @@ namespace TrashCollector.Controllers
         }
 
         // GET: Accounts/Create
-        public ActionResult Create()
+        public ActionResult CreateAccount()
         {
             return View();
         }
@@ -81,7 +80,7 @@ namespace TrashCollector.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "FirstName,LastName,StreetAddress,City,State,ZipCode")] Account account)
+        public ActionResult CreateAccount([Bind(Include = "FirstName,LastName,StreetAddress,City,State,ZipCode")] Account account)
         {
             if (ModelState.IsValid)
             {

@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using TrashCollector.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace TrashCollector.Controllers
 {
@@ -54,10 +55,37 @@ namespace TrashCollector.Controllers
             }
         }
 
+
+
+        public ActionResult Index()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                var user = User.Identity;
+                ViewBag.Name = user.Name;
+
+                ViewBag.displayMenu = "No";
+
+                if (isEmployeeUser())
+                {
+                    ViewBag.displayMenu = "Yes";
+                }
+                return View();
+            }
+            else
+            {
+                ViewBag.Name = "Not Logged IN";
+            }
+            return View();
+        }
+
+
+
         //
         // GET: /Account/Login
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
+
         {
             ViewBag.ReturnUrl = returnUrl;
             return View();
@@ -81,7 +109,8 @@ namespace TrashCollector.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    //return RedirectToLocal(returnUrl);
+                    return RedirectToAction("Index");
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
@@ -92,6 +121,40 @@ namespace TrashCollector.Controllers
                     return View(model);
             }
         }
+
+
+        public Boolean isEmployeeUser()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                var user = User.Identity;
+                ApplicationDbContext context = new ApplicationDbContext();
+                var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+                var s = UserManager.GetRoles(user.GetUserId());
+                if (s.Count() > 0)
+                {
+                    if (s[0].ToString() == "Employee")
+                    {
+                        return true;
+                    }
+                }
+
+                else
+                {
+                    return false;
+                }
+            }
+            return false;
+        }
+
+
+
+
+
+
+
+
+
 
         //
         // GET: /Account/VerifyCode
