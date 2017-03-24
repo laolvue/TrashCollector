@@ -181,6 +181,14 @@ namespace TrashCollector.Controllers
                 };
                 db.Persons.Add(person);
                 db.SaveChanges();
+                var ower = db.Persons.Count();
+                Billing billing = new Billing
+                {
+                    BillAmount = 0,
+                    PersonId = db.Persons.ToList()[ower - 1].PersonId
+                };
+                db.Billings.Add(billing);
+                db.SaveChanges();
 
                 return RedirectToAction("Register","Account");
             }

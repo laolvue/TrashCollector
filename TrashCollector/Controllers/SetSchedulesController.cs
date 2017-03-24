@@ -24,6 +24,7 @@ namespace TrashCollector.Controllers
             List<string> timezz = new List<string>();
             List<string> weekzz = new List<string>();
             List<string> dayzz = new List<string>();
+            List<int> peerz = new List<int>();
             foreach (var blue in scheduleOfUser)
             {
                 var time = from r in db.Times
@@ -60,14 +61,59 @@ namespace TrashCollector.Controllers
                     lak = efw;
                 }
                 dayzz.Add(lak);
+
+                var peeepz = from k in db.Persons
+                             where k.PersonId == blue.PersonId
+                             select k.PersonId;
+
+
+                int keeew = 0;
+                foreach (var weq in peeepz)
+                {
+                    keeew = weq;
+                }
+                peerz.Add(keeew);
             }
            
             ViewData["MyProduct1"] = weekzz;
             ViewData["MyProduct2"] = timezz;
             ViewData["MyProduct3"] = dayzz;
+            ViewData["MyProduct26"] = peerz;
+
 
             return View();
         }
+
+
+        public ActionResult DeletePickUp(int id, string memberid)
+        {
+            var weekIDz = from oio in db.Weeks
+                          where memberid == oio.StartingWeek
+                          select oio.WeekId;
+            var oip = weekIDz.ToList();
+
+            var removeFromGroup = from weo in db.Schedules
+                                  where id == weo.PersonId
+                                  select weo;
+            int pot = oip[0];
+            var jowo = from poooe in removeFromGroup
+                       where pot == poooe.WeekId
+                       select poooe;
+            var item = removeFromGroup.ToList();
+            foreach (var wer in jowo.ToList())
+            {
+                db.Schedules.Remove(wer);
+
+                db.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
+
+
+
+
+
+
 
         // GET: SetSchedules/Details/5
         public ActionResult Details(int? id)

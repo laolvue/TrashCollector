@@ -12,6 +12,9 @@
 @{
     var prod3 = (List<string>)ViewData["MyProduct3"];
 }
+@{
+    var prod26 = (List<int>)ViewData["MyProduct26"];
+}
 
 <h2>Your Schedule for 2017</h2>
 
@@ -52,6 +55,13 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => prod2[i])
+            </td>
+            <td>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="button" value="Delete scheduled Pick up" onclick="location.href='@Url.Action("DeletePickUp", "SetSchedules", new { id = prod26[i], memberid = prod[i] },null)'" />
+                    </div>
+                </div>
             </td>
         </tr>
     }

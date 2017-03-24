@@ -177,25 +177,6 @@ namespace TrashCollector.Controllers
             ViewData["MyProduct7"] = addrezz;
             ViewData["MyProduct8"] = peerz;
 
-            /*
-            List<List<string>> fewoi = new List<List<string>>();
-            
-            fewoi[0].Add(weekzz.ToString());
-            fewoi[0].Add(timezz.ToString());
-            fewoi[0].Add(dayzz.ToString());
-            fewoi[0].Add(addrezz.ToString());
-
-            for(int z =0; z < weekzz.Count; z++)
-            {
-                Schedule ooi = new Schedule
-                {
-                    Week = fewoi[0].,
-
-                }
-            }
-
-            */
-
 
 
             if (UserManager.IsInRole(User.Identity.GetUserId(), "Employee"))
@@ -276,6 +257,14 @@ namespace TrashCollector.Controllers
             foreach (var wer in jowo.ToList())
             {
                 db.Schedules.Remove(wer);
+                var billz = from biller in db.Billings
+                            where biller.PersonId == wer.PersonId
+                            select biller;
+                foreach(var poet in db.Billings.Where(u=> u.PersonId == wer.PersonId))
+                {
+                    poet.BillAmount += 5;
+                }
+                
                 db.SaveChanges();
             }
             return RedirectToAction("create");
