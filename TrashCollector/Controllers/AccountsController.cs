@@ -213,8 +213,6 @@ namespace TrashCollector.Controllers
         [AllowAnonymous]
         public ActionResult RegisterEmployee()
         {
-            ViewData["MyProduct"] = identifier.DetermineEmployee();
-
             ViewBag.Name = new SelectList(db.Roles.Where(u => !u.Name.Contains("Admin"))
                                             .ToList(), "Name", "Name");
             return View();
@@ -227,7 +225,6 @@ namespace TrashCollector.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> RegisterEmployee(RegisterEmployee model)
         {
-            ViewData["MyProduct"] = identifier.DetermineEmployee();
 
             if (ModelState.IsValid)
             {

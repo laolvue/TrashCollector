@@ -197,6 +197,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AccountsController.cs" />
+    <Compile Include="Controllers\EmployeeRoutesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SetSchedulesController.cs" />
@@ -228,12 +229,17 @@
     <Compile Include="Migrations\201703221915273_added setweekschedule.Designer.cs">
       <DependentUpon>201703221915273_added setweekschedule.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703231911161_added employeeroutes.cs" />
+    <Compile Include="Migrations\201703231911161_added employeeroutes.Designer.cs">
+      <DependentUpon>201703231911161_added employeeroutes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\City.cs" />
     <Compile Include="Models\Day.cs" />
+    <Compile Include="Models\EmployeeRoute.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Month.cs" />
@@ -329,6 +335,12 @@
     <Content Include="Views\SetWeekSchedules\Index.cshtml" />
     <Content Include="Views\Accounts\RegisterEmployee.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\EmployeeRoutes\Create.cshtml" />
+    <Content Include="Views\EmployeeRoutes\Delete.cshtml" />
+    <Content Include="Views\EmployeeRoutes\Details.cshtml" />
+    <Content Include="Views\EmployeeRoutes\Edit.cshtml" />
+    <Content Include="Views\EmployeeRoutes\Index.cshtml" />
+    <Content Include="Views\EmployeeRoutes\DisplayPickups.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -359,6 +371,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703221915273_added setweekschedule.resx">
       <DependentUpon>201703221915273_added setweekschedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703231911161_added employeeroutes.resx">
+      <DependentUpon>201703231911161_added employeeroutes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

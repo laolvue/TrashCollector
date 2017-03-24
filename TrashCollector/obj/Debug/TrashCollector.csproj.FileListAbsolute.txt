@@ -264,4 +264,5 @@ C:\Users\nraug\Desktop\NEW TRASH\TrashCollector\TrashCollector\obj\Debug\TrashCo
 C:\Users\nraug\Desktop\NEW TRASH\TrashCollector\TrashCollector\obj\Debug\TrashCollector.csproj.GenerateResource.Cache
 C:\Users\nraug\Desktop\NEW TRASH\TrashCollector\TrashCollector\obj\Debug\TrashCollector.dll
 C:\Users\nraug\Desktop\NEW TRASH\TrashCollector\TrashCollector\obj\Debug\TrashCollector.pdb
+C:\Users\nraug\Desktop\NEW TRASH\TrashCollector\TrashCollector\obj\Debug\TrashCollector.Migrations.addedemployeeroutes.resources
 C:\Users\nraug\Desktop\NEW TRASH\TrashCollector\TrashCollector\obj\Debug\TrashCollector.csprojResolveAssemblyReference.cache

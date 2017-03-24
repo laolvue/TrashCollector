@@ -20,8 +20,6 @@ namespace TrashCollector.Controllers
         public ActionResult Index()
         {
             var userEmail = User.Identity.Name;
-            
-            List<List<string>> gea = new List<List<string>>();
             var scheduleOfUser = db.Schedules.Where(a => a.PersonId == (from b in db.Persons where b.Email == userEmail select b.PersonId).FirstOrDefault()).ToList();
             List<string> timezz = new List<string>();
             List<string> weekzz = new List<string>();
@@ -64,7 +62,7 @@ namespace TrashCollector.Controllers
                 dayzz.Add(lak);
             }
            
-            ViewData["MyProduct"] = weekzz;
+            ViewData["MyProduct1"] = weekzz;
             ViewData["MyProduct2"] = timezz;
             ViewData["MyProduct3"] = dayzz;
 
@@ -101,6 +99,7 @@ namespace TrashCollector.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "TimeId,DayId")] SetSchedule setSchedule)
         {
+            
             var userEmail = User.Identity.Name;
             if (ModelState.IsValid)
             {
