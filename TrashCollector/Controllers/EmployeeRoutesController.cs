@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using TrashCollector.Models;
@@ -97,6 +98,8 @@ namespace TrashCollector.Controllers
             List<string> weekzz = new List<string>();
             List<string> dayzz = new List<string>();
             List<string> addrezz = new List<string>();
+            List<int> peerz = new List<int>();
+
 
             foreach (var blue in woot)
             {
@@ -154,12 +157,26 @@ namespace TrashCollector.Controllers
                     lak = efw;
                 }
                 dayzz.Add(lak);
+
+                var peeepz = from k in db.Persons
+                          where k.PersonId == blue.PersonId
+                          select k.PersonId;
+
+
+                int keeew = 0;
+                foreach (var weq in peeepz)
+                {
+                    keeew = weq;
+                }
+                peerz.Add(keeew);
             }
 
             ViewData["MyProduct4"] = weekzz;
             ViewData["MyProduct5"] = timezz;
             ViewData["MyProduct6"] = dayzz;
             ViewData["MyProduct7"] = addrezz;
+            ViewData["MyProduct8"] = peerz;
+
             /*
             List<List<string>> fewoi = new List<List<string>>();
             
@@ -188,9 +205,6 @@ namespace TrashCollector.Controllers
 
             return View();
         }
-        
-
-
 
 
 
@@ -242,6 +256,29 @@ namespace TrashCollector.Controllers
             ViewBag.WeekId = new SelectList(db.Weeks, "WeekId", "StartingWeek", employeeRoute.WeekId);
             ViewBag.ZipId = new SelectList(db.ZipCodes, "ZipId", "ZipCode", employeeRoute.ZipId);
             return View(employeeRoute);
+        }
+
+        public ActionResult PickUp( int id, string memberid)
+        {
+            var weekIDz = from oio in db.Weeks
+                          where memberid == oio.StartingWeek
+                          select oio.WeekId;
+            var oip = weekIDz.ToList();
+
+            var removeFromGroup = from weo in db.Schedules
+                                  where id == weo.PersonId
+                                  select weo;
+            int pot = oip[0];
+            var jowo = from poooe in removeFromGroup
+                       where pot == poooe.WeekId
+                       select poooe;
+            var item = removeFromGroup.ToList();
+            foreach (var wer in jowo.ToList())
+            {
+                db.Schedules.Remove(wer);
+                db.SaveChanges();
+            }
+            return RedirectToAction("create");
         }
 
         // GET: EmployeeRoutes/Edit/5

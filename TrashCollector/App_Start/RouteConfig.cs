@@ -18,6 +18,12 @@ namespace TrashCollector
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            routes.MapRoute(
+            name: "EmployeeRoutes",
+            url: "EmployeeRoutes/PickUp/{id}/{memberid}",
+            defaults: new { controller = "PersonCAFDetail", action = "Create", id = @"\d+", memberid = @"\d+" }
+            );
         }
     }
 }
