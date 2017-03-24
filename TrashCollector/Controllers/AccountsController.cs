@@ -90,35 +90,88 @@ namespace TrashCollector.Controllers
         {
             if (ModelState.IsValid)
             {
-                Zip zip = new Zip
+                int zipp = -2;
+                List<Zip> wee = db.ZipCodes.ToList();
+                for(int i=0;i<wee.Count;i++)
                 {
-                    ZipCode = account.ZipCode
-                };
-                db.ZipCodes.Add(zip);
+                    if(wee[i].ZipCode == account.ZipCode)
+                    {
+                        zipp = i;
+                    }
+                }
+                if(zipp == -2)
+                {
+                    Zip zip = new Zip
+                    {
+                        ZipCode = account.ZipCode
+                    };
+                    db.ZipCodes.Add(zip);
+                }
 
-                State state = new State
+
+                int statee = -2;
+                List<State> dee = db.States.ToList();
+                for(int j=0; j < dee.Count; j++)
                 {
-                    StateName = account.State
-                };
-                db.States.Add(state);
+                    if (dee[j].StateName == account.State)
+                    {
+                        statee = j;
+                    }
+                }
+                if(statee == -2)
+                {
+                    State state = new State
+                    {
+                        StateName = account.State
+                    };
+                    db.States.Add(state);
+                }
+
                 db.SaveChanges();
-
+                
                 City city = new City
                 {
                     CityName = account.City,
                     StateId = (from a in db.States where a.StateName == account.State select a.StateId).First(),
                     ZipId = (from a in db.ZipCodes where a.ZipCode == account.ZipCode select a.ZipId).First()
                 };
-                db.Cities.Add(city);
-                db.SaveChanges();
+
+                int tez = -2;
+                List<City> jo = new List<City>();
+                for(int n = 0; n<jo.Count;n++)
+                {
+                    if (jo[n].CityName == city.CityName)
+                    {
+                        tez = n;
+                    }
+                }
+                if(tez == -2)
+                {
+                    db.Cities.Add(city);
+                    db.SaveChanges();
+                }
+                
 
                 Address address = new Address
                 {
                     AddressName = account.StreetAddress,
                     CityId = (from a in db.Cities where a.CityName == account.City select a.CityId).First()
                 };
-                db.Addresses.Add(address);
-                db.SaveChanges();
+                int gez = -2;
+                List<Address> weo = new List<Address>();
+                for (int n = 0; n < weo.Count; n++)
+                {
+                    if (weo[n].AddressName == address.AddressName)
+                    {
+                        gez = n;
+                    }
+                }
+                if(gez == -2)
+                {
+                    db.Addresses.Add(address);
+                    db.SaveChanges();
+                }
+                
 
                 Person person = new Person
                 {

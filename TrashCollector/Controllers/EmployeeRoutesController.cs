@@ -160,7 +160,31 @@ namespace TrashCollector.Controllers
             ViewData["MyProduct5"] = timezz;
             ViewData["MyProduct6"] = dayzz;
             ViewData["MyProduct7"] = addrezz;
+            /*
+            List<List<string>> fewoi = new List<List<string>>();
+            
+            fewoi[0].Add(weekzz.ToString());
+            fewoi[0].Add(timezz.ToString());
+            fewoi[0].Add(dayzz.ToString());
+            fewoi[0].Add(addrezz.ToString());
 
+            for(int z =0; z < weekzz.Count; z++)
+            {
+                Schedule ooi = new Schedule
+                {
+                    Week = fewoi[0].,
+
+                }
+            }
+
+            */
+
+
+
+            if (UserManager.IsInRole(User.Identity.GetUserId(), "Employee"))
+            {
+                ViewData["MyProduct"] = "1";
+            }
 
             return View();
         }
