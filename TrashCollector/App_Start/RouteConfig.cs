@@ -30,6 +30,7 @@ namespace TrashCollector
             url: "Home/DeletePickUp/{id}/{memberid}",
             defaults: new { controller = "PersonCAFDetail", action = "Create", id = @"\d+", memberid = @"\d+" }
             );
+            
         }
     }
 }

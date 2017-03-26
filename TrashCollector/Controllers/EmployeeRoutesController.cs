@@ -176,7 +176,8 @@ namespace TrashCollector.Controllers
             ViewData["MyProduct6"] = dayzz;
             ViewData["MyProduct7"] = addrezz;
             ViewData["MyProduct8"] = peerz;
-
+            TempData["Addressez"] = addrezz;
+            
 
 
             if (UserManager.IsInRole(User.Identity.GetUserId(), "Employee"))
@@ -191,19 +192,33 @@ namespace TrashCollector.Controllers
 
 
 
-        // GET: EmployeeRoutes/Details/5
-        public ActionResult Details(int? id)
+        // GET: EmployeeRoutes/Details/
+        public ActionResult Details()
         {
-            if (id == null)
+            List<string> opo = new List<string>();
+            List<string> genxe = TempData["Addressez"] as List<string>;
+            foreach( var oee in genxe)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                var fjaoie = from d in db.Addresses
+                             where d.AddressName == oee
+                             select d;
+                var fwe = fjaoie.ToList();
+                List<City> pokew = new List<City>();
+                foreach(var oio in fwe)
+                {
+                    pokew = db.Cities.Where(u => u.CityId == oio.CityId).ToList();
+                }
+                var oiow = pokew.ToList();
+
+                opo.Add($"{oee} {oiow[0].CityName}");
             }
-            EmployeeRoute employeeRoute = db.EmployeeRoutes.Find(id);
-            if (employeeRoute == null)
+
+            ViewData["MyProduct600"] = opo;
+            if (UserManager.IsInRole(User.Identity.GetUserId(), "Employee"))
             {
-                return HttpNotFound();
+                ViewData["MyProduct"] = "1";
             }
-            return View(employeeRoute);
+            return View();
         }
 
         // GET: EmployeeRoutes/Create

@@ -1,34 +1,61 @@
-﻿@model TrashCollector.Models.EmployeeRoute
+﻿@using TrashCollector.Models
 
 @{
     ViewBag.Title = "Details";
 }
+@{
+    List<String> date = ViewData["MyProduct600"] as List<string>;
+}
 
-<h2>Details</h2>
+<h2>@date[0]</h2>
 
-<div>
-    <h4>EmployeeRoute</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Week.StartingWeek)
-        </dt>
+<style>
+    #map {
+        width: 100%;
+        height: 400px;
+        background-color: grey;
+        overflow: visible;
+    }
+</style>
+<h3>Scheduled Pick Ups In Your Area</h3>
 
-        <dd>
-            @Html.DisplayFor(model => model.Week.StartingWeek)
-        </dd>
+<div id="map"></div>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrvkfQB_Mfp7L9r1PKvU8AnTFmm9O8RlA&callback=initialize">
+</script>
+<script>
+    
+    var geocoder;
+    var map;
+    function initialize() {
+        geocoder = new google.maps.Geocoder();
+        var latlng = new google.maps.LatLng(43.034134, -87.9141417);
+        var mapOptions = {
+            zoom: 8,
+            center: latlng
+        }
+        map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Zip.ZipId)
-        </dt>
+        @for (int i = 0; i < date.Count; i++)
+        {
+            @:var count = '@date[i]';
+            @:codeAddress(count);
+        }
 
-        <dd>
-            @Html.DisplayFor(model => model.Zip.ZipId)
-        </dd>
+    }
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.RouteId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+    function codeAddress(address) {
+
+        geocoder.geocode({ 'address': address }, function (results, status) {
+            if (status == 'OK') {
+                map.setCenter(results[0].geometry.location);
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: results[0].geometry.location
+                });
+            } else {
+                alert('Geocode was not successful for the following reason: ' + status);
+            }
+        });
+    }
+</script>
