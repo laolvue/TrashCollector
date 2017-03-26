@@ -18,8 +18,7 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort>
-    </IISExpressSSLPort>
+    <IISExpressSSLPort>44304</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
@@ -198,7 +197,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AccountsController.cs" />
-    <Compile Include="Controllers\EmployeeRoutesController.cs" />
+    <Compile Include="Controllers\EmployeeRoutersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SetSchedulesController.cs" />
@@ -206,37 +205,21 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201703220422576_test.cs" />
-    <Compile Include="Migrations\201703220422576_test.Designer.cs">
-      <DependentUpon>201703220422576_test.cs</DependentUpon>
+    <Compile Include="Migrations\201703261806502_added employee route table.cs" />
+    <Compile Include="Migrations\201703261806502_added employee route table.Designer.cs">
+      <DependentUpon>201703261806502_added employee route table.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201703220431196_added setschedules table.cs" />
-    <Compile Include="Migrations\201703220431196_added setschedules table.Designer.cs">
-      <DependentUpon>201703220431196_added setschedules table.cs</DependentUpon>
+    <Compile Include="Migrations\201703261810392_lol.cs" />
+    <Compile Include="Migrations\201703261810392_lol.Designer.cs">
+      <DependentUpon>201703261810392_lol.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201703221244133_changed names for setschedule table.cs" />
-    <Compile Include="Migrations\201703221244133_changed names for setschedule table.Designer.cs">
-      <DependentUpon>201703221244133_changed names for setschedule table.cs</DependentUpon>
+    <Compile Include="Migrations\201703261813347_added employeerouter table.cs" />
+    <Compile Include="Migrations\201703261813347_added employeerouter table.Designer.cs">
+      <DependentUpon>201703261813347_added employeerouter table.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201703221327473_added schedules table.cs" />
-    <Compile Include="Migrations\201703221327473_added schedules table.Designer.cs">
-      <DependentUpon>201703221327473_added schedules table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703221603231_changed names of table.cs" />
-    <Compile Include="Migrations\201703221603231_changed names of table.Designer.cs">
-      <DependentUpon>201703221603231_changed names of table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703221915273_added setweekschedule.cs" />
-    <Compile Include="Migrations\201703221915273_added setweekschedule.Designer.cs">
-      <DependentUpon>201703221915273_added setweekschedule.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703231911161_added employeeroutes.cs" />
-    <Compile Include="Migrations\201703231911161_added employeeroutes.Designer.cs">
-      <DependentUpon>201703231911161_added employeeroutes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201703241525548_added billing table.cs" />
-    <Compile Include="Migrations\201703241525548_added billing table.Designer.cs">
-      <DependentUpon>201703241525548_added billing table.cs</DependentUpon>
+    <Compile Include="Migrations\201703261826234_deleted employeeroute table.cs" />
+    <Compile Include="Migrations\201703261826234_deleted employeeroute table.Designer.cs">
+      <DependentUpon>201703261826234_deleted employeeroute table.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
@@ -245,7 +228,7 @@
     <Compile Include="Models\Billing.cs" />
     <Compile Include="Models\City.cs" />
     <Compile Include="Models\Day.cs" />
-    <Compile Include="Models\EmployeeRoute.cs" />
+    <Compile Include="Models\EmployeeRouter.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Month.cs" />
@@ -343,12 +326,12 @@
     <Content Include="Views\SetWeekSchedules\Index.cshtml" />
     <Content Include="Views\Accounts\RegisterEmployee.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
-    <Content Include="Views\EmployeeRoutes\Create.cshtml" />
-    <Content Include="Views\EmployeeRoutes\Delete.cshtml" />
-    <Content Include="Views\EmployeeRoutes\Details.cshtml" />
-    <Content Include="Views\EmployeeRoutes\Edit.cshtml" />
-    <Content Include="Views\EmployeeRoutes\Index.cshtml" />
-    <Content Include="Views\EmployeeRoutes\DisplayPickups.cshtml" />
+    <Content Include="Views\EmployeeRouters\Create.cshtml" />
+    <Content Include="Views\EmployeeRouters\Delete.cshtml" />
+    <Content Include="Views\EmployeeRouters\Details.cshtml" />
+    <Content Include="Views\EmployeeRouters\Edit.cshtml" />
+    <Content Include="Views\EmployeeRouters\Index.cshtml" />
+    <Content Include="Views\EmployeeRouters\DisplayPickups.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -362,29 +345,17 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201703220422576_test.resx">
-      <DependentUpon>201703220422576_test.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201703261806502_added employee route table.resx">
+      <DependentUpon>201703261806502_added employee route table.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703220431196_added setschedules table.resx">
-      <DependentUpon>201703220431196_added setschedules table.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201703261810392_lol.resx">
+      <DependentUpon>201703261810392_lol.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703221244133_changed names for setschedule table.resx">
-      <DependentUpon>201703221244133_changed names for setschedule table.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201703261813347_added employeerouter table.resx">
+      <DependentUpon>201703261813347_added employeerouter table.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703221327473_added schedules table.resx">
-      <DependentUpon>201703221327473_added schedules table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703221603231_changed names of table.resx">
-      <DependentUpon>201703221603231_changed names of table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703221915273_added setweekschedule.resx">
-      <DependentUpon>201703221915273_added setweekschedule.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703231911161_added employeeroutes.resx">
-      <DependentUpon>201703231911161_added employeeroutes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201703241525548_added billing table.resx">
-      <DependentUpon>201703241525548_added billing table.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201703261826234_deleted employeeroute table.resx">
+      <DependentUpon>201703261826234_deleted employeeroute table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

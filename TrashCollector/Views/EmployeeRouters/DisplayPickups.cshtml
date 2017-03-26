@@ -1,0 +1,86 @@
+﻿@{
+    ViewBag.Title = "Display";
+}
+@{
+    var prod = (List<string>)ViewData["MyProduct4"];
+}
+@{
+    var prod2 = (List<string>)ViewData["MyProduct5"];
+}
+@{
+    var prod3 = (List<string>)ViewData["MyProduct6"];
+}
+@{
+    var prod4 = (List<string>)ViewData["MyProduct7"];
+}
+@{
+    var prod5 = (List<int>)ViewData["MyProduct8"];
+}
+
+<h2>Scheduled Pick Ups For Selected Week</h2>
+
+<table class="table">
+    <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="button" value="See Google Maps Route" onclick="location.href='@Url.Action("Details", "EmployeeRouters")'" />
+                </div>
+            </div>
+        </th>
+        <th></th>
+    </tr>
+</table>
+
+<table class="table">
+    <tr>
+        <th>
+            <h4><b>Week</b></h4>
+        </th>
+        <th>
+            <h4><b>Pick Up Days</b></h4>
+        </th>
+        <th>
+            <h4><b>Pick Up Time</b></h4>
+        </th>
+        <th>
+            <h4><b>Address</b></h4>
+        </th>
+        <th></th>
+    </tr>
+
+    @for (int i = 0; i < prod.Count; i++)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => prod[i])
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => prod3[i])
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => prod2[i])
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => prod4[i])
+            </td>
+            <td>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="button" value="Picked Up" onclick="location.href='@Url.Action("PickUp", "EmployeeRouters", new { id = prod5[i], memberid = prod[i] },null)'" />
+                    </div>
+                </div>
+            </td>
+        </tr>
+    }
+
+</table>
+
