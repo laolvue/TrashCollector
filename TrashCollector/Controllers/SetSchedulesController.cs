@@ -31,7 +31,6 @@ namespace TrashCollector.Controllers
                           where r.TimeId == blue.TimeId
                           select r.TimeName;
                 
-                
                 string dak="";
                 foreach(var efw in time)
                 {

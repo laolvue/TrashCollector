@@ -221,6 +221,10 @@
     <Compile Include="Migrations\201703261826234_deleted employeeroute table.Designer.cs">
       <DependentUpon>201703261826234_deleted employeeroute table.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703271448236_added scheduleremoveds table.cs" />
+    <Compile Include="Migrations\201703271448236_added scheduleremoveds table.Designer.cs">
+      <DependentUpon>201703271448236_added scheduleremoveds table.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -235,6 +239,7 @@
     <Compile Include="Models\MyViewModel.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Schedule.cs" />
+    <Compile Include="Models\ScheduleRemoved.cs" />
     <Compile Include="Models\SetSchedule.cs" />
     <Compile Include="Models\SetWeekSchedule.cs" />
     <Compile Include="Models\State.cs" />
@@ -245,6 +250,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-spacelab.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -356,6 +362,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703261826234_deleted employeeroute table.resx">
       <DependentUpon>201703261826234_deleted employeeroute table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703271448236_added scheduleremoveds table.resx">
+      <DependentUpon>201703271448236_added scheduleremoveds table.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -84,14 +84,12 @@ namespace TrashCollector.Controllers
             {
                 for (int m = 0; m < pwo.Count; m++)
                 {
-                    if (newttw[k].PersonId == pwo[m].PersonId && gene.WeekId == pwo[m].WeekId)
+                    if (newttw[k].PersonId == pwo[m].PersonId && gene.WeekId == pwo[m].WeekId && pwo[m].DayId==gene.DayId)
                     {
                         woot.Add(pwo[m]);
                     }
                 }
             }
-
-
 
 
             List<string> timezz = new List<string>();
@@ -274,6 +272,15 @@ namespace TrashCollector.Controllers
             foreach (var wer in jowo.ToList())
             {
                 db.Schedules.Remove(wer);
+                ScheduleRemoved remov = new ScheduleRemoved
+                {
+                    WeekId = wer.WeekId,
+                    TimeId = wer.TimeId,
+                    DayId = wer.DayId,
+                    PersonId = wer.PersonId
+                };
+
+                db.ScheduleRemoveds.Add(remov);
                 var billz = from biller in db.Billings
                             where biller.PersonId == wer.PersonId
                             select biller;
@@ -323,18 +330,55 @@ namespace TrashCollector.Controllers
         }
 
         // GET: EmployeeRoutes/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete()
         {
-            if (id == null)
+            var userEmail = User.Identity.Name;
+            var DelScheduleUser = db.ScheduleRemoveds.Where(a => a.PersonId == (from b in db.Persons where b.Email == userEmail select b.PersonId).FirstOrDefault()).ToList();
+            List<string> timezz = new List<string>();
+            List<string> weekzz = new List<string>();
+            List<string> dayzz = new List<string>();
+
+            foreach(var item in DelScheduleUser)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                var oi = from w in db.Times
+                         where w.TimeId == item.TimeId
+                         select w.TimeName;
+                string timeNamez = "";
+
+                foreach(var itemz in oi)
+                {
+
+                    timeNamez = itemz;
+                }
+                timezz.Add(timeNamez);
+                var op = from e in db.Weeks
+                         where e.WeekId == item.WeekId
+                         select e.StartingWeek;
+                string weekNamez = "";
+
+                foreach (var itemee in op)
+                {
+                    weekNamez = itemee;
+                }
+                weekzz.Add(weekNamez);
+
+                var oe = from t in db.Days
+                         where t.DayId == item.DayId
+                         select t.DayName;
+                string dayNamez = "";
+                foreach (var itemz in oe)
+                {
+                    dayNamez = itemz;
+                }
+                dayzz.Add(dayNamez);
+
             }
-            EmployeeRouter employeeRouter = db.EmployeeRouters.Find(id);
-            if (employeeRouter == null)
-            {
-                return HttpNotFound();
-            }
-            return View(employeeRouter);
+
+            ViewData["MyProduct97"] = weekzz;
+            ViewData["MyProduct98"] = timezz;
+            ViewData["MyProduct99"] = dayzz;
+
+            return View();
         }
 
         // POST: EmployeeRoutes/Delete/5

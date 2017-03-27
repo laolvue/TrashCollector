@@ -20,14 +20,14 @@ namespace TrashCollector
             );
 
             routes.MapRoute(
-            name: "EmployeeRoutes",
-            url: "EmployeeRoutes/PickUp/{id}/{memberid}",
+            name: "EmployeeRouters",
+            url: "EmployeeRouters/PickUp/{id}/{memberid}",
             defaults: new { controller = "PersonCAFDetail", action = "Create", id = @"\d+", memberid = @"\d+" }
             );
 
             routes.MapRoute(
-            name: "Home",
-            url: "Home/DeletePickUp/{id}/{memberid}",
+            name: "SetSchedule",
+            url: "SetSchedules/DeletePickUp/{id}/{memberid}",
             defaults: new { controller = "PersonCAFDetail", action = "Create", id = @"\d+", memberid = @"\d+" }
             );
             

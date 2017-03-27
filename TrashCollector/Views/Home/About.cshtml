@@ -1,12 +1,28 @@
 ﻿@{
-    ViewBag.Title = "About";
+    ViewBag.Title = "Account Balance";
 }
 @{
     var prod10 = (double)ViewData["MyProduct10"];
 }
 
 
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<h2>@ViewBag.Title</h2>
+<h4>Your balance for this month:</h4>
+<table class="table">
+    <tr>
+        <td>
+            <p>Total pick ups for this month:</p>
+        </td>
+        <td>
+            <div class="form-group">
+                <input type="button" value="View Trash Collection History" onclick="location.href='@Url.Action("Delete", "EmployeeRouters")'" />
+            </div>
+        </td>
 
-<p>Your bill due: $@Html.DisplayFor(modelItem => prod10).00</p>
+    </tr>
+</table>
+
+    <p>Bill due: $@Html.DisplayFor(modelItem => prod10).00</p>
+    <a href="/youraction" data-paypal-button="true">
+        <img src="//www.paypalobjects.com/en_US/i/btn/btn_xpressCheckout.gif" alt="Check out with PayPal" />
+    </a>
