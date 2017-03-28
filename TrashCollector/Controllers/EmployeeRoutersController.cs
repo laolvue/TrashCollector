@@ -195,6 +195,10 @@ namespace TrashCollector.Controllers
         {
             List<string> opo = new List<string>();
             List<string> genxe = TempData["Addressez"] as List<string>;
+            if(genxe == null)
+            {
+                return RedirectToAction("Create");
+            }
             foreach (var oee in genxe)
             {
                 var fjaoie = from d in db.Addresses
