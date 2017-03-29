@@ -150,13 +150,18 @@ namespace TrashCollector.Controllers
                     db.Cities.Add(city);
                     db.SaveChanges();
                 }
-                
+                var zippy = from moo in db.ZipCodes
+                            where moo.ZipCode == account.ZipCode
+                            select moo.ZipId;
+
+                int zippid = zippy.ToList()[0];
 
                 Address address = new Address
                 {
                     AddressName = account.StreetAddress,
-                    CityId = (from a in db.Cities where a.CityName == account.City select a.CityId).First()
+                    CityId = (from a in db.Cities where a.CityName == account.City && a.ZipId == zippid select a.CityId).First()
                 };
+
                 int gez = -2;
                 List<Address> weo = new List<Address>();
                 for (int n = 0; n < weo.Count; n++)

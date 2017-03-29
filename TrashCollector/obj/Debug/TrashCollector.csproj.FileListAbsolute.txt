@@ -263,3 +263,4 @@ C:\Users\nraug\Desktop\NEW TRASH\TrashCollector\TrashCollector\obj\Debug\TrashCo
 C:\Users\nraug\Desktop\NEW TRASH\TrashCollector\TrashCollector\obj\Debug\TrashCollector.Migrations.addedemployeeroutertable.resources
 C:\Users\nraug\Desktop\NEW TRASH\TrashCollector\TrashCollector\obj\Debug\TrashCollector.Migrations.deletedemployeeroutetable.resources
 C:\Users\nraug\Desktop\NEW TRASH\TrashCollector\TrashCollector\obj\Debug\TrashCollector.Migrations.addedscheduleremovedstable.resources
+C:\Users\nraug\Desktop\NEW TRASH\TrashCollector\TrashCollector\obj\Debug\TrashCollector.csprojResolveAssemblyReference.cache
