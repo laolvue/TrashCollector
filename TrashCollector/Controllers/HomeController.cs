@@ -81,7 +81,6 @@ namespace TrashCollector.Controllers
 
             return View();
         }
-
         public ActionResult Contact()
         {
             ViewData["MyProduct"] = DetermineEmployee();
@@ -97,6 +96,5 @@ namespace TrashCollector.Controllers
 
             return View();
         }
-        
     }
 }
